@@ -7,7 +7,7 @@
 
 def classify_triangle(a,b,c):
     try:
-        if (type(a) and type(b) and type(c)) is int:    #or float # introduce bug -- length of a side of a triangle can also be a float value
+        if (((type(a) and type(b) and type(c)) is int) and (a>0 and b>0 and c>0)):    #or float # introduce bug -- length of a side of a triangle can also be a float value
             type_of_triangle = "Not a triangle"
             if((a+b)>c and (b+c)>a):  # and (c+a)>b # Commented in order to introduce bug -- basic property of triangles
             

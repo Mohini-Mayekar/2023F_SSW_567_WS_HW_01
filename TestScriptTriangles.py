@@ -22,10 +22,14 @@ class TestScriptTriangles(unittest.TestCase):
     #test case for not a triangle
     def test_not_a_triangle(self):
         self.assertEqual(classify_triangle(2,2,5),"Not a triangle", "(2,2,5) is not a triangle")
+
+    #test case - all negative inputs
+    def test_neg_int_values(self):
+        self.assertNotEqual(classify_triangle(-1,-1,-1),"Equilateral", "(-1,-1,-1) is not a triangle")
     
     #test case for right scalene triangle - to be failed - right angled - when order of the sides is missed
     def test_neg_right_scalene(self):
-        self.assertEqual(classify_triangle(4,5,3),"Right Angled Scalene", "(3,4,5) is a Right Angled Scalene triangle")
+        self.assertEqual(classify_triangle(4,5,3),"Right Angled Scalene", "(4,5,3) is a Right Angled Scalene triangle")
 
     #test case - to be failed - Isosceles - invalid input string
     def test_neg_invalid_input_str(self):
@@ -42,6 +46,10 @@ class TestScriptTriangles(unittest.TestCase):
     #test case - to be failed - Isosceles - does not satisfy basic triangle property
     def test_neg_isosceles(self):
         self.assertNotEqual(classify_triangle(2,5,2),"Isosceles", "(2,5,2) is not an Isosceles triangle")
+
+    #test case - to be failed - few negative inputs
+    def test_neg_int_values_2(self):
+        self.assertEqual(classify_triangle(2,5,-2),"Isosceles", "(2,5,-2) is not a triangle")
 
 
 if __name__ == "__main__":
