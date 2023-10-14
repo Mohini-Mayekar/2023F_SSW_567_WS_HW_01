@@ -9,11 +9,12 @@ def classify_triangle(a, b, c):
 
     """
     try:
-        if ((type(a) and type(b) and type(c)) is int) and (a > 0 and b > 0 and c > 0):
+        if ((type(a) and type(b) and type(c)) is int
+            or (type(a) and type(b) and type(c)) is float) and (a > 0 and b > 0 and c > 0):
             # or float # introduce bug -- length of a side of a triangle can also be a float value
             type_of_triangle = "Not a triangle"
-            if (a + b) > c and (b + c) > a:
-                # and (c+a)>b # Commented in order to introduce bug -- basic property of triangles
+            #basic property of triangles
+            if (a + b) > c and (b + c) > a and (c+a)>b:
                 # Equilateral triangle - lengths of all the three sides are equal
                 if a == b and b == c and c == a:
                     type_of_triangle = "Equilateral"
@@ -28,8 +29,7 @@ def classify_triangle(a, b, c):
 
                 # Right Angled - Sum of squares of the lenghts of two sides
                 # is equal to the square of the lenght of thrid side
-                if ((a**2 + b**2) == c**2) or ((b**2 + c**2) == a**2):
-                    # or ((a**2 + c**2) == b**2) # Excluded in order to induce bug --
+                if ((a**2 + b**2) == c**2) or ((b**2 + c**2) == a**2) or ((a**2 + c**2) == b**2):
                     type_of_triangle = "Right Angled " + type_of_triangle
             return type_of_triangle
 
